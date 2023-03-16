@@ -1,0 +1,11 @@
+Model Information:
+* title:	Practice Chair
+* source:	https://sketchfab.com/3d-models/practice-chair-446d86e64e4b43cd85a0ecb99bb7299b
+* author:	Antelmo (https://sketchfab.com/Antelmo)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Practice Chair" (https://sketchfab.com/3d-models/practice-chair-446d86e64e4b43cd85a0ecb99bb7299b) by Antelmo (https://sketchfab.com/Antelmo) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

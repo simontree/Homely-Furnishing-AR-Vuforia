@@ -23,7 +23,7 @@ public class FurniturePlacingManager : MonoBehaviour
     
     [Header("Augmentation Size")]
     [Range(0.1f, 2.0f)]
-    [SerializeField] float ObjectSize = 0.65f;
+    [SerializeField] float ObjectSize = 0.65f; // doesn't seem to have an effect when changing it - from core samples
     
     const string GROUND_PLANE_NAME = "Emulator Ground Plane";
     
@@ -97,8 +97,10 @@ public class FurniturePlacingManager : MonoBehaviour
     void RotateTowardsCamera(GameObject augmentation)
     {
         var lookAtPosition = mainCamera.transform.position - augmentation.transform.position;
+        
         lookAtPosition.y = 0;
         var rotation = Quaternion.LookRotation(lookAtPosition);
+        Debug.Log("rotation: "+rotation);
         augmentation.transform.rotation = rotation;
     }
 
