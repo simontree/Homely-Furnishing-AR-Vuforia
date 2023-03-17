@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using Vuforia;
 using Vuforia.UnityRuntimeCompiled;
@@ -9,39 +10,30 @@ public class FurniturePlacingManager : MonoBehaviour
 {
     public bool GroundPlaneHitReceived { get; private set; }
 
-    // [Header("Augmentation Object")]
+    [Header("Augmentation Object")]
     public GameObject FurnitureObj = null;
 
-    const string GROUND_PLANE_NAME = "Emulator Ground Plane";
-    
     Camera mainCamera;
-    string floorName;
     Vector3 originalFurnitureObjScale;
     bool isPlaced;
     int automaticHitTestFrameCount;
 
-    public GameObject[] prefabs = null;
-    public GameObject target = null;
-    public GameObject anchorPlacement;
+    public GameObject AnchorPlacement;
+    // Vector3 originalPrefabObjScale;
 
     // Start is called before the first frame update
     void Start()
     {
         mainCamera = VuforiaBehaviour.Instance.GetComponent<Camera>();
         originalFurnitureObjScale = FurnitureObj.transform.localScale;
+        // originalPrefabObjScale = AnchorPlacement.transform.GetChild(0).localScale;
         // SetupMaterials(); TODO
-        floorName = GROUND_PLANE_NAME;
         Reset();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            SpawnObject(); 
-        }
-
         // EnablePreviewModeTransparency(!mIsPlaced); TODO
         if (!isPlaced)
             RotateTowardsCamera(FurnitureObj);
@@ -49,36 +41,17 @@ public class FurniturePlacingManager : MonoBehaviour
             SnapObjectToMousePosition();
     }
 
-    public void Object1()
-    {
-        target = prefabs[0];
-    }
-    
-    public void Object2()
-    {
-        target = prefabs[1];
-    }
-    
-    public void Object3()
-    {
-        target = prefabs[2];
-    }
-
-    public void SpawnObject()
-    {
-        Ray ray = mainCamera.ScreenPointToRay(anchorPlacement.transform.position);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
-        {
-            Instantiate(target, hit.point, Quaternion.identity, anchorPlacement.transform);
-        }
-    }
-
     public void Reset()
     {
-        FurnitureObj.transform.localPosition = Vector3.zero;
-        FurnitureObj.transform.localEulerAngles = Vector3.zero;
-        FurnitureObj.transform.localScale = Vector3.Scale(originalFurnitureObjScale, new Vector3(0.1f, 0.1f, 0.1f));
+        // FurnitureObj.transform.localPosition = Vector3.zero;
+        // FurnitureObj.transform.localEulerAngles = Vector3.zero;
+        // FurnitureObj.transform.localScale = Vector3.Scale(originalFurnitureObjScale, new Vector3(0.1f, 0.1f, 0.1f));
+        
+        Debug.Log("AnchorPlacement.transform.GetChild(0) in Reset(): "+AnchorPlacement.transform.GetChild(0));
+        // AnchorPlacement.transform.GetChild(0).localPosition = Vector3.zero;
+        // AnchorPlacement.transform.GetChild(0).localEulerAngles = Vector3.zero;
+        // AnchorPlacement.transform.GetChild(0).localScale = new Vector3(0.01f, 0.01f, 0.01f);
+        
         isPlaced = false;
     }
 
@@ -107,9 +80,12 @@ public class FurniturePlacingManager : MonoBehaviour
             if (!UnityRuntimeCompiledFacade.Instance.IsUnityUICurrentlySelected())
             {
                 var cameraToPlaneRay = mainCamera.ScreenPointToRay(Input.mousePosition);
-                if (Physics.Raycast(cameraToPlaneRay, out var cameraToPlaneHit) &&
-                    cameraToPlaneHit.collider.gameObject.name == floorName)
+                if (Physics.Raycast(cameraToPlaneRay, out var cameraToPlaneHit) 
+                    )
                     FurnitureObj.transform.position = cameraToPlaneHit.point;
+                
+                    // rework this as now only 1 child can get dragged
+                    AnchorPlacement.transform.GetChild(0).position = cameraToPlaneHit.point;
             }
                 
         }
@@ -130,6 +106,8 @@ public class FurniturePlacingManager : MonoBehaviour
     public void OnAutomaticHitTest(HitTestResult result)
     {
         automaticHitTestFrameCount = Time.frameCount;
+        
+        // Debug.Log("automaticHitTestFrameCount: "+automaticHitTestFrameCount);
     
         if (!isPlaced)
         {
@@ -148,8 +126,13 @@ public class FurniturePlacingManager : MonoBehaviour
     {
         Debug.Log("OnContentPlaced() called.");
         //Align content to anchor
-        FurnitureObj.transform.localPosition = Vector3.zero;
-        RotateTowardsCamera(FurnitureObj);
+        // FurnitureObj.transform.localPosition = Vector3.zero;
+        // RotateTowardsCamera(FurnitureObj);
+        
+        //test seems to work
+        // AnchorPlacement.transform.GetChild(0).transform.localPosition = Vector3.zero;
+        // RotateTowardsCamera(AnchorPlacement.transform.GetChild(0).GameObject());
+        
         isPlaced = true;
     }
     

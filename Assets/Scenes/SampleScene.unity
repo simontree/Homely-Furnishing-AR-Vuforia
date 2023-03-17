@@ -535,6 +535,7 @@ GameObject:
   - component: {fileID: 889205716}
   - component: {fileID: 889205715}
   - component: {fileID: 889205714}
+  - component: {fileID: 889205717}
   m_Layer: 5
   m_Name: ButtonChair
   m_TagString: Untagged
@@ -607,9 +608,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1636427865}
-        m_TargetAssemblyTypeName: FurniturePlacingManager, Assembly-CSharp
-        m_MethodName: Object1
+      - m_Target: {fileID: 889205717}
+        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
+        m_MethodName: SpawnObject
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -657,6 +658,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 889205712}
   m_CullTransparentMesh: 1
+--- !u!114 &889205717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889205712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0d5f17c1c450b340850933802e8261a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FurnitureObj: {fileID: 2000875504464545869, guid: b2d849a2f2f9cc54e8783449255bb0d6, type: 3}
+  PlaneFinder: {fileID: 336172075}
+  AnchorPlacement: {fileID: 1962257565}
 --- !u!1 &894798955
 GameObject:
   m_ObjectHideFlags: 0
@@ -976,19 +992,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1434721010}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1636427865}
-        m_TargetAssemblyTypeName: FurniturePlacingManager, Assembly-CSharp
-        m_MethodName: Object2
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1434721010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1056,13 +1060,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d28886fa8d4358c45835ce57fae18560, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FurnitureObj: {fileID: 7314858532435081497, guid: 9e3209d07d89b6f46b33fd60a1a6ccf6, type: 3}
-  prefabs:
-  - {fileID: 2000875504464545869, guid: b2d849a2f2f9cc54e8783449255bb0d6, type: 3}
-  - {fileID: 3117001857188426566, guid: e15566f923f3eb849b7078cdea66d9db, type: 3}
-  - {fileID: 7314858532435081497, guid: 9e3209d07d89b6f46b33fd60a1a6ccf6, type: 3}
-  target: {fileID: 0}
-  anchorPlacement: {fileID: 1962257565}
+  FurnitureObj: {fileID: 2000875504464545869, guid: b2d849a2f2f9cc54e8783449255bb0d6, type: 3}
+  AnchorPlacement: {fileID: 1962257565}
 --- !u!4 &1636427866
 Transform:
   m_ObjectHideFlags: 0
@@ -1806,19 +1805,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2112832790}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1636427865}
-        m_TargetAssemblyTypeName: FurniturePlacingManager, Assembly-CSharp
-        m_MethodName: Object3
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &2112832790
 MonoBehaviour:
   m_ObjectHideFlags: 0

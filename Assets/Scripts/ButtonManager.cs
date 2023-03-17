@@ -2,27 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Vuforia;
 
 public class ButtonManager : MonoBehaviour
 {
-    private Button btn;
-    public GameObject furniture;
-       
-    // Start is called before the first frame update
-    void Start()
-    {
-        btn = GetComponent<Button>();
-        btn.onClick.AddListener(SelectObject);
-    }
+    public GameObject FurnitureObj;
+    public GameObject PlaneFinder;
+    public GameObject AnchorPlacement;
 
-    // Update is called once per frame
-    void Update()
+    public void SpawnObject()
     {
-        
-    }
-
-    void SelectObject()
-    {
-        DataHandler.Instance.furniture = furniture;
+        Instantiate(FurnitureObj, PlaneFinder.transform.GetChild(0).localPosition, Quaternion.identity, AnchorPlacement.transform);
     }
 }
