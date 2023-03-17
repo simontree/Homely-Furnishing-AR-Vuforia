@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4082500022066496391}
   - component: {fileID: 2637171529690014500}
   - component: {fileID: 3022931526638314231}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube_Material.001_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 116775688794894729}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3470440845786321865}
-  m_Layer: 0
+  - component: {fileID: 1574048901841187099}
+  m_Layer: 6
   m_Name: Low_poly_sofa
   m_TagString: Selectable
   m_Icon: {fileID: 0}
@@ -147,3 +148,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1574048901841187099
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7314858532435081497}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}

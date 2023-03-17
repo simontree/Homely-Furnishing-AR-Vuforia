@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7291673452993205459}
   - component: {fileID: 6270675749639045955}
   - component: {fileID: 174372660089637712}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Table_Table01_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5404932205581295389}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Table
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6713186472765612333}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wooden_Table
   m_TagString: Selectable
   m_Icon: {fileID: 0}
@@ -156,7 +156,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3568372928979979026}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RootNode
   m_TagString: Untagged
   m_Icon: {fileID: 0}

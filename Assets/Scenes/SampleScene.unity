@@ -295,6 +295,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectableTag: Selectable
   highlightMaterial: {fileID: 2100000, guid: 30a3a1da2bfc9f141809d36711ec9433, type: 2}
+  draggableMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &588871312
 GameObject:
   m_ObjectHideFlags: 0
@@ -1221,6 +1224,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anchorPlacement: {fileID: 1962257565}
+  selectableMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!4 &1636427866
 Transform:
   m_ObjectHideFlags: 0
