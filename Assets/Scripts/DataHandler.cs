@@ -6,6 +6,7 @@ public class DataHandler : MonoBehaviour
 {
     public GameObject furniture;
     private static DataHandler instance;
+
     public static DataHandler Instance
     {
         get
@@ -16,16 +17,5 @@ public class DataHandler : MonoBehaviour
             }
             return instance;
         }
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

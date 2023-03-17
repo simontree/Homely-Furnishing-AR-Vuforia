@@ -8,23 +8,10 @@ using Vuforia.UnityRuntimeCompiled;
 public class FurniturePlacingManager : MonoBehaviour
 {
     public bool GroundPlaneHitReceived { get; private set; }
-    
-    Vector3 ObjectScale
-    {
-        get
-        {
-            var augmentationScale = VuforiaRuntimeUtilities.IsPlayMode() ? 0.1f : ObjectSize;
-            return new Vector3(augmentationScale, augmentationScale, augmentationScale);
-        }
-    }
-    
-    [Header("Augmentation Object")]
-    [SerializeField] GameObject FurnitureObj = null;
-    
-    [Header("Augmentation Size")]
-    [Range(0.1f, 2.0f)]
-    [SerializeField] float ObjectSize = 0.65f; // doesn't seem to have an effect when changing it - from core samples
-    
+
+    // [Header("Augmentation Object")]
+    public GameObject FurnitureObj = null;
+
     const string GROUND_PLANE_NAME = "Emulator Ground Plane";
     
     Camera mainCamera;
@@ -32,7 +19,11 @@ public class FurniturePlacingManager : MonoBehaviour
     Vector3 originalFurnitureObjScale;
     bool isPlaced;
     int automaticHitTestFrameCount;
-    
+
+    public GameObject[] prefabs = null;
+    public GameObject target = null;
+    public GameObject anchorPlacement;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +37,11 @@ public class FurniturePlacingManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            SpawnObject(); 
+        }
+
         // EnablePreviewModeTransparency(!mIsPlaced); TODO
         if (!isPlaced)
             RotateTowardsCamera(FurnitureObj);
@@ -53,11 +49,36 @@ public class FurniturePlacingManager : MonoBehaviour
             SnapObjectToMousePosition();
     }
 
+    public void Object1()
+    {
+        target = prefabs[0];
+    }
+    
+    public void Object2()
+    {
+        target = prefabs[1];
+    }
+    
+    public void Object3()
+    {
+        target = prefabs[2];
+    }
+
+    public void SpawnObject()
+    {
+        Ray ray = mainCamera.ScreenPointToRay(anchorPlacement.transform.position);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit))
+        {
+            Instantiate(target, hit.point, Quaternion.identity, anchorPlacement.transform);
+        }
+    }
+
     public void Reset()
     {
         FurnitureObj.transform.localPosition = Vector3.zero;
         FurnitureObj.transform.localEulerAngles = Vector3.zero;
-        FurnitureObj.transform.localScale = Vector3.Scale(originalFurnitureObjScale, ObjectScale);
+        FurnitureObj.transform.localScale = Vector3.Scale(originalFurnitureObjScale, new Vector3(0.1f, 0.1f, 0.1f));
         isPlaced = false;
     }
 
@@ -93,14 +114,12 @@ public class FurniturePlacingManager : MonoBehaviour
                 
         }
     }
-
     void RotateTowardsCamera(GameObject augmentation)
     {
         var lookAtPosition = mainCamera.transform.position - augmentation.transform.position;
         
         lookAtPosition.y = 0;
         var rotation = Quaternion.LookRotation(lookAtPosition);
-        Debug.Log("rotation: "+rotation);
         augmentation.transform.rotation = rotation;
     }
 
