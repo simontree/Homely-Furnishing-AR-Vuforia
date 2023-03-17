@@ -6,7 +6,6 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using Vuforia;
 using Vuforia.UnityRuntimeCompiled;
-using Vector3 = GLTF.Math.Vector3;
 
 public class FurniturePlacingManager : MonoBehaviour
 {
@@ -28,11 +27,51 @@ public class FurniturePlacingManager : MonoBehaviour
     
     void Update()
     {
-        if (_isPlaced)
+        if (Input.GetMouseButtonDown(0))
         {
-            SnapObjectToMousePosition();
-            _objectCount = anchorPlacement.transform.childCount;
+            CheckHitObject();
         }
+
+        if (_selectedObject != null)
+        {
+            if (Input.GetMouseButton(0))
+            {
+                DragObject();
+            }
+
+            if (Input.GetMouseButtonUp(0))
+            {
+                DropObject();
+            }
+        }
+        
+    }
+
+    void CheckHitObject()
+    {
+        if (_selectedObject == null)
+        {
+            RaycastHit hit;
+            Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+            {
+                Debug.Log("hit: "+hit.collider.gameObject);
+                _selectedObject = hit.collider.gameObject;
+            }
+        }
+    }
+
+    void DragObject()
+    {
+        Debug.Log("_selectedObject.transform.position: "+_selectedObject.transform.position);
+        Debug.Log("_mainCamera.nearClipPlane + 1.0f: "+_mainCamera.nearClipPlane + 1.0f);
+        _selectedObject.transform.position = _mainCamera.ScreenToWorldPoint(new UnityEngine.Vector3(Input.mousePosition.x,
+            Input.mousePosition.y, _mainCamera.nearClipPlane + 1.0f));
+    }
+
+    void DropObject()
+    {
+        _selectedObject = null;
     }
 
     void SnapObjectToMousePosition()
@@ -42,27 +81,29 @@ public class FurniturePlacingManager : MonoBehaviour
             if (!UnityRuntimeCompiledFacade.Instance.IsUnityUICurrentlySelected())
             {
                 var cameraToPlaneRay = _mainCamera.ScreenPointToRay(Input.mousePosition);
-                if (Physics.Raycast(cameraToPlaneRay, out var cameraToPlaneHit)
-                    && _objectCount > 1)
+                if (Physics.Raycast(cameraToPlaneRay, out var cameraToPlaneHit))
                 {
-                    anchorPlacement.transform.GetChild(_objectCount-1).position = cameraToPlaneHit.point;
-                }
-                else
-                {
-                    anchorPlacement.transform.GetChild(0).position = cameraToPlaneHit.point;
-                }
+                    _selectedObject = cameraToPlaneHit.transform.gameObject;
+                }    
+                
+                
+                // && _objectCount > 1)
+                // {
+                //     anchorPlacement.transform.GetChild(_objectCount-1).position = cameraToPlaneHit.point;
+                // }
+                // else
+                // {
+                //     anchorPlacement.transform.GetChild(0).position = cameraToPlaneHit.point;
+                // }
             }
         }
-
+        
         // from https://yewtu.be/watch?v=uNCCS6DjebA - Unity Drag and Drop Script from AIA
         // if (_selectedObject != null)
         // {
         //     Vector3 position = new Vector3(Input.mousePosition.x, Input.mousePosition.y,_mainCamera.WorldToScreenPoint(_selectedObject.transform.position).z);
-        //     Vector3 position2 = new Vector3(Input.mousePosition.x, Input.mousePosition.y,Input.mousePosition.z);
-        //     // GLTF
-        //     Vector3 worldPosition = _mainCamera.ScreenToWorldPoint(position2);
+        //     Vector3 worldPosition = _mainCamera.ScreenToWorldPoint(position);
         // }
-        
     }
 
     // from https://yewtu.be/watch?v=uNCCS6DjebA - Unity Drag and Drop Script from AIA
