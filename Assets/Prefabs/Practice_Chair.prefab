@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 6886598436769807868}
   m_Layer: 0
   m_Name: Practice_Chair
-  m_TagString: Untagged
+  m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -170,8 +170,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2000875504464545869}
-  m_LocalRotation: {x: 0, y: 0.99091464, z: 0, w: 0.13449232}
-  m_LocalPosition: {x: 0.24031729, y: -0.4764629, z: -1.2732058}
+  m_LocalRotation: {x: 0, y: 0.91703355, z: 0, w: -0.39881015}
+  m_LocalPosition: {x: 0.24561697, y: -0.48147735, z: -1.2050083}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children:

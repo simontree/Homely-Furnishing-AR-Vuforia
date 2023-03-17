@@ -8,48 +8,24 @@ using Vuforia.UnityRuntimeCompiled;
 
 public class FurniturePlacingManager : MonoBehaviour
 {
-    public bool GroundPlaneHitReceived { get; private set; }
+    public GameObject anchorPlacement;
+    
+    private Camera _mainCamera;
+    private bool _isPlaced;
+    
+    private int _objectCount;
 
-    [Header("Augmentation Object")]
-    public GameObject FurnitureObj = null;
-
-    Camera mainCamera;
-    bool isPlaced;
-    int automaticHitTestFrameCount;
-
-    public GameObject AnchorPlacement;
-   
     void Start()
     {
-        mainCamera = VuforiaBehaviour.Instance.GetComponent<Camera>();
-        // SetupMaterials(); TODO
+        _mainCamera = VuforiaBehaviour.Instance.GetComponent<Camera>();
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
-        // EnablePreviewModeTransparency(!mIsPlaced); TODO
-        if (!isPlaced)
-            RotateTowardsCamera(FurnitureObj);
-        if (isPlaced)
-            SnapObjectToMousePosition();
-    }
-
-    private void LateUpdate()
-    {
-        // The AutomaticHitTestFrameCount is assigned the Time.frameCount in the
-        // OnAutomaticHitTest() callback method. When the LateUpdate() method
-        // is then called later in the same frame, it sets GroundPlaneHitReceived
-        // to true if the frame number matches. For any code that needs to check
-        // the current frame value of GroundPlaneHitReceived, it should do so
-        // in a LateUpdate() method.
-        GroundPlaneHitReceived = automaticHitTestFrameCount == Time.frameCount;
-        
-        if (!isPlaced)
+        if (_isPlaced)
         {
-            // The Chair should only be visible if Ground Plane Hit was received for this frame
-            var isVisible = GroundPlaneHitReceived;
-            // mFurnitureObjRenderer.enabled = mFurnitureObjShadowRenderer.enabled = isVisible;
+            SnapObjectToMousePosition();
+            _objectCount = anchorPlacement.transform.childCount;
         }
     }
 
@@ -59,41 +35,27 @@ public class FurniturePlacingManager : MonoBehaviour
         {
             if (!UnityRuntimeCompiledFacade.Instance.IsUnityUICurrentlySelected())
             {
-                var cameraToPlaneRay = mainCamera.ScreenPointToRay(Input.mousePosition);
-                if (Physics.Raycast(cameraToPlaneRay, out var cameraToPlaneHit) 
-                    )
-                    FurnitureObj.transform.position = cameraToPlaneHit.point;
-                
-                    // TODO: rework this as now only 1 child can get dragged
-                    AnchorPlacement.transform.GetChild(0).position = cameraToPlaneHit.point;
+                var cameraToPlaneRay = _mainCamera.ScreenPointToRay(Input.mousePosition);
+                if (Physics.Raycast(cameraToPlaneRay, out var cameraToPlaneHit)
+                    && _objectCount > 1)
+                {
+                    anchorPlacement.transform.GetChild(_objectCount-1).position = cameraToPlaneHit.point;
+                }
+                else
+                {
+                    anchorPlacement.transform.GetChild(0).position = cameraToPlaneHit.point;
+                }
+                    
             }
                 
         }
     }
+
     void RotateTowardsCamera(GameObject augmentation)
     {
-        var lookAtPosition = mainCamera.transform.position - augmentation.transform.position;
+        var lookAtPosition = _mainCamera.transform.position - augmentation.transform.position;
         lookAtPosition.y = 0;
-        var rotation = Quaternion.LookRotation(lookAtPosition);
-        augmentation.transform.rotation = rotation;
-    }
-
-    /// <summary>
-    /// Displays a preview of the furniture at the location pointed by the device.
-    /// It is registered to PlaneFinderBehaviour.OnAutomaticHitTest.
-    /// </summary>
-    public void OnAutomaticHitTest(HitTestResult result)
-    {
-        automaticHitTestFrameCount = Time.frameCount;
-        
-        // Debug.Log("automaticHitTestFrameCount: "+automaticHitTestFrameCount);
-    
-        if (!isPlaced)
-        {
-            // Content is not placed yet. So we place the augmentation at HitTestResult
-            // position to provide a visual feedback about where the augmentation will be placed.
-            FurnitureObj.transform.position = result.Position;
-        }
+        augmentation.transform.rotation = Quaternion.LookRotation(lookAtPosition);
     }
 
     /// <summary>
@@ -104,11 +66,15 @@ public class FurniturePlacingManager : MonoBehaviour
     public void OnContentPlaced()
     {
         Debug.Log("OnContentPlaced() called.");
-        //Align content to anchor
-        // AnchorPlacement.transform.GetChild(0).localPosition = Vector3.zero;
-        RotateTowardsCamera(AnchorPlacement.transform.GetChild(0).GameObject());
-        
-        isPlaced = true;
+        if(_objectCount == 1)
+        {
+            RotateTowardsCamera(anchorPlacement.transform.GetChild(0).GameObject());
+        }
+        if (_objectCount > 1)
+        {
+            RotateTowardsCamera(anchorPlacement.transform.GetChild(_objectCount-1).GameObject());
+        }
+        _isPlaced = true;
     }
     
 }
