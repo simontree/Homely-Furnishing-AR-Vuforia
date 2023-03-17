@@ -21,9 +21,9 @@ public class ButtonManager : MonoBehaviour
     
     public void DeleteAll()
     {
-        while (AnchorPlacement.transform.childCount > 0)
+        foreach (Transform child in AnchorPlacement.transform)
         {
-            DestroyImmediate(AnchorPlacement.transform.GetChild(0));
+            Destroy(child.gameObject);
         }
     }
 }
