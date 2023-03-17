@@ -731,7 +731,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Reset
+  m_text: Delete All
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -921,6 +921,7 @@ GameObject:
   - component: {fileID: 1434721011}
   - component: {fileID: 1434721010}
   - component: {fileID: 1434721009}
+  - component: {fileID: 1434721012}
   m_Layer: 5
   m_Name: ButtonTable
   m_TagString: Untagged
@@ -992,7 +993,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1434721010}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1434721012}
+        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
+        m_MethodName: SpawnObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1434721010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1031,6 +1044,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1434721007}
   m_CullTransparentMesh: 1
+--- !u!114 &1434721012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434721007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0d5f17c1c450b340850933802e8261a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FurnitureObj: {fileID: 3117001857188426566, guid: e15566f923f3eb849b7078cdea66d9db, type: 3}
+  PlaneFinder: {fileID: 336172075}
+  AnchorPlacement: {fileID: 1962257565}
 --- !u!1 &1636427864
 GameObject:
   m_ObjectHideFlags: 0
@@ -1372,8 +1400,9 @@ GameObject:
   - component: {fileID: 1778691832}
   - component: {fileID: 1778691831}
   - component: {fileID: 1778691830}
+  - component: {fileID: 1778691833}
   m_Layer: 5
-  m_Name: Reset
+  m_Name: ButtonDelete
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1444,9 +1473,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1636427865}
-        m_TargetAssemblyTypeName: FurniturePlacingManager, Assembly-CSharp
-        m_MethodName: Reset
+      - m_Target: {fileID: 1778691833}
+        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
+        m_MethodName: DeleteAll
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1494,6 +1523,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1778691828}
   m_CullTransparentMesh: 1
+--- !u!114 &1778691833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778691828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0d5f17c1c450b340850933802e8261a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FurnitureObj: {fileID: 0}
+  PlaneFinder: {fileID: 336172075}
+  AnchorPlacement: {fileID: 1962257565}
 --- !u!1 &1875511183
 GameObject:
   m_ObjectHideFlags: 0
@@ -1734,6 +1778,7 @@ GameObject:
   - component: {fileID: 2112832791}
   - component: {fileID: 2112832790}
   - component: {fileID: 2112832789}
+  - component: {fileID: 2112832792}
   m_Layer: 5
   m_Name: ButtonSofa
   m_TagString: Untagged
@@ -1805,7 +1850,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2112832790}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2112832792}
+        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
+        m_MethodName: SpawnObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2112832790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1844,6 +1901,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2112832787}
   m_CullTransparentMesh: 1
+--- !u!114 &2112832792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112832787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0d5f17c1c450b340850933802e8261a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FurnitureObj: {fileID: 7314858532435081497, guid: 9e3209d07d89b6f46b33fd60a1a6ccf6, type: 3}
+  PlaneFinder: {fileID: 336172075}
+  AnchorPlacement: {fileID: 1962257565}
 --- !u!1 &2122527749
 GameObject:
   m_ObjectHideFlags: 0

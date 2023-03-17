@@ -12,6 +12,18 @@ public class ButtonManager : MonoBehaviour
 
     public void SpawnObject()
     {
-        Instantiate(FurnitureObj, PlaneFinder.transform.GetChild(0).localPosition, Quaternion.identity, AnchorPlacement.transform);
+        if (FurnitureObj != null)
+        {
+            Instantiate(FurnitureObj, PlaneFinder.transform.GetChild(0).localPosition, Quaternion.identity,
+                AnchorPlacement.transform);
+        }
+    }
+    
+    public void DeleteAll()
+    {
+        while (AnchorPlacement.transform.childCount > 0)
+        {
+            DestroyImmediate(AnchorPlacement.transform.GetChild(0));
+        }
     }
 }

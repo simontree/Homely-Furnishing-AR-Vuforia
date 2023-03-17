@@ -14,21 +14,15 @@ public class FurniturePlacingManager : MonoBehaviour
     public GameObject FurnitureObj = null;
 
     Camera mainCamera;
-    Vector3 originalFurnitureObjScale;
     bool isPlaced;
     int automaticHitTestFrameCount;
 
     public GameObject AnchorPlacement;
-    // Vector3 originalPrefabObjScale;
-
-    // Start is called before the first frame update
+   
     void Start()
     {
         mainCamera = VuforiaBehaviour.Instance.GetComponent<Camera>();
-        originalFurnitureObjScale = FurnitureObj.transform.localScale;
-        // originalPrefabObjScale = AnchorPlacement.transform.GetChild(0).localScale;
         // SetupMaterials(); TODO
-        Reset();
     }
 
     // Update is called once per frame
@@ -39,20 +33,6 @@ public class FurniturePlacingManager : MonoBehaviour
             RotateTowardsCamera(FurnitureObj);
         if (isPlaced)
             SnapObjectToMousePosition();
-    }
-
-    public void Reset()
-    {
-        // FurnitureObj.transform.localPosition = Vector3.zero;
-        // FurnitureObj.transform.localEulerAngles = Vector3.zero;
-        // FurnitureObj.transform.localScale = Vector3.Scale(originalFurnitureObjScale, new Vector3(0.1f, 0.1f, 0.1f));
-        
-        Debug.Log("AnchorPlacement.transform.GetChild(0) in Reset(): "+AnchorPlacement.transform.GetChild(0));
-        // AnchorPlacement.transform.GetChild(0).localPosition = Vector3.zero;
-        // AnchorPlacement.transform.GetChild(0).localEulerAngles = Vector3.zero;
-        // AnchorPlacement.transform.GetChild(0).localScale = new Vector3(0.01f, 0.01f, 0.01f);
-        
-        isPlaced = false;
     }
 
     private void LateUpdate()
@@ -84,7 +64,7 @@ public class FurniturePlacingManager : MonoBehaviour
                     )
                     FurnitureObj.transform.position = cameraToPlaneHit.point;
                 
-                    // rework this as now only 1 child can get dragged
+                    // TODO: rework this as now only 1 child can get dragged
                     AnchorPlacement.transform.GetChild(0).position = cameraToPlaneHit.point;
             }
                 
@@ -93,7 +73,6 @@ public class FurniturePlacingManager : MonoBehaviour
     void RotateTowardsCamera(GameObject augmentation)
     {
         var lookAtPosition = mainCamera.transform.position - augmentation.transform.position;
-        
         lookAtPosition.y = 0;
         var rotation = Quaternion.LookRotation(lookAtPosition);
         augmentation.transform.rotation = rotation;
@@ -126,12 +105,8 @@ public class FurniturePlacingManager : MonoBehaviour
     {
         Debug.Log("OnContentPlaced() called.");
         //Align content to anchor
-        // FurnitureObj.transform.localPosition = Vector3.zero;
-        // RotateTowardsCamera(FurnitureObj);
-        
-        //test seems to work
-        // AnchorPlacement.transform.GetChild(0).transform.localPosition = Vector3.zero;
-        // RotateTowardsCamera(AnchorPlacement.transform.GetChild(0).GameObject());
+        // AnchorPlacement.transform.GetChild(0).localPosition = Vector3.zero;
+        RotateTowardsCamera(AnchorPlacement.transform.GetChild(0).GameObject());
         
         isPlaced = true;
     }
