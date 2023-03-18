@@ -19,10 +19,10 @@ public class DropdownHandler : MonoBehaviour
 
     public void AddObject(GameObject furnitureObj)
     {
-        var option = new Dropdown.OptionData(furnitureObj.name);
+        _objCount++;
+        var option = new Dropdown.OptionData("Object "+_objCount+": "+furnitureObj.name);
         _dropdown.options.Add(option);
         _dropdown.RefreshShownValue();
-        _objCount++;
     }
 
     public int GetSelectedObjectIndex(Dropdown dropdown)
