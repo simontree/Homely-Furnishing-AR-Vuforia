@@ -10,7 +10,6 @@ public class FurniturePlacingManager : MonoBehaviour
     
     private Camera _mainCamera;
     private bool _isPlaced;
-    private int _objectCount;
     
     private GameObject _furnitureObject;
 
@@ -27,7 +26,6 @@ public class FurniturePlacingManager : MonoBehaviour
         if (_isPlaced)
         {
             SnapObjectToMousePosition();
-            _objectCount = anchorPlacement.transform.childCount;
         }
     }
     
@@ -57,15 +55,7 @@ public class FurniturePlacingManager : MonoBehaviour
     /// </summary>
     public void OnContentPlaced()
     {
-        Debug.Log("OnContentPlaced() called.");
-        if(_objectCount == 1)
-        {
-            RotateTowardsCamera(anchorPlacement.transform.GetChild(0).GameObject());
-        }
-        if (_objectCount > 1)
-        {
-            RotateTowardsCamera(anchorPlacement.transform.GetChild(_objectCount-1).GameObject());
-        }
+        RotateTowardsCamera(anchorPlacement.transform.GetChild(dropdownHandler.GetSelectedObjectIndex(dropdown)).GameObject());
         _isPlaced = true;
     }
     
