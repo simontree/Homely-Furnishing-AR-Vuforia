@@ -1,51 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Net.Sockets;
-using TMPro;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class DropdownHandler : MonoBehaviour
 {
-    [SerializeField] private TMP_Text numberText;
-    public GameObject AnchorPlacement;
+    private Dropdown _dropdown;
+    private int _objCount = 0;
 
-    List<string> selectableObjects = new List<string>();
-    private Dropdown dropdown;
-
-    void Start()
+    
+    private void Awake()
     {
-        dropdown = transform.GetComponent<Dropdown>();
-        dropdown.options.Clear();
-        
-        dropdown.onValueChanged.AddListener(delegate { DropdownItemSelected(dropdown); });
+        _dropdown = GetComponent<Dropdown>();
     }
-    // public void DropdownExample(int index)
-    // {
-    //     switch (index)
-    //     {
-    //         //numberText.text can be any object to be changed
-    //         case 0: numberText.text = "0";
-    //             break;
-    //         case 1: numberText.text = "1";
-    //             break;
-    //         case 2: numberText.text = "2";
-    //             break;
-    //         case 3: numberText.text = "3";
-    //             break;
-    //     }
-    // }
-
-    void Update()
+    private void Start()
     {
-        if (AnchorPlacement.transform.childCount > 0)
-        {
-            foreach (Transform child in AnchorPlacement.transform)
-            {
-                // dropdown.options.Add(new Dropdown.OptionData() {text = child.gameObject.name});
-                Debug.Log("added item: "+child.gameObject.name);
-                // Debug.Log("dropdow");
-            }
-        }
+        _dropdown.onValueChanged.AddListener(delegate { GetSelectedObjectIndex(_dropdown); });
+    }
+
+    public void AddObject(GameObject furnitureObj)
+    {
+        var option = new Dropdown.OptionData(furnitureObj.name);
+        _dropdown.options.Add(option);
+        _dropdown.RefreshShownValue();
+        _objCount++;
+    }
+
+    public int GetSelectedObjectIndex(Dropdown dropdown)
+    {
+        return dropdown.value;
     }
 }

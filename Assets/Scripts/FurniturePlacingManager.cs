@@ -1,9 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Serialization;
+using UnityEngine.UI;
 using Vuforia;
 using Vuforia.UnityRuntimeCompiled;
 
@@ -15,8 +12,10 @@ public class FurniturePlacingManager : MonoBehaviour
     private bool _isPlaced;
     private int _objectCount;
     
-    private GameObject _selectedObject = null;
     private GameObject _furnitureObject;
+
+    public DropdownHandler dropdownHandler;
+    public Dropdown dropdown;
 
     void Start()
     {
@@ -34,23 +33,15 @@ public class FurniturePlacingManager : MonoBehaviour
     
     void SnapObjectToMousePosition()
     {
-        if (VuforiaRuntimeUtilities.IsPlayMode() && Input.GetMouseButton(0))
+        if (VuforiaRuntimeUtilities.IsPlayMode() && Input.GetMouseButton(0) && !UnityRuntimeCompiledFacade.Instance.IsUnityUICurrentlySelected())
         {
-            if (!UnityRuntimeCompiledFacade.Instance.IsUnityUICurrentlySelected())
-            {
                 var cameraToPlaneRay = _mainCamera.ScreenPointToRay(Input.mousePosition);
-                if (Physics.Raycast(cameraToPlaneRay, out var cameraToPlaneHit)
-                    && _objectCount > 1)
+                if (Physics.Raycast(cameraToPlaneRay, out var cameraToPlaneHit))
                 {
-                    anchorPlacement.transform.GetChild(_objectCount-1).position = cameraToPlaneHit.point;
+                    anchorPlacement.transform.GetChild(dropdownHandler.GetSelectedObjectIndex(dropdown)).position = cameraToPlaneHit.point;
                 }
-                else
-                {
-                    anchorPlacement.transform.GetChild(0).position = cameraToPlaneHit.point;
-                }
-            }
         }
-        }
+    }
     
     void RotateTowardsCamera(GameObject augmentation)
     {
