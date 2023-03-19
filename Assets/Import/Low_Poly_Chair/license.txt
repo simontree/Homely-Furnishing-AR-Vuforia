@@ -1,0 +1,11 @@
+Model Information:
+* title:	Low Poly Chair
+* source:	https://sketchfab.com/3d-models/low-poly-chair-b88e12f233ba4eb7a760fb3ccc27ace1
+* author:	Amir Htm (https://sketchfab.com/2aartists)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Low Poly Chair" (https://sketchfab.com/3d-models/low-poly-chair-b88e12f233ba4eb7a760fb3ccc27ace1) by Amir Htm (https://sketchfab.com/2aartists) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

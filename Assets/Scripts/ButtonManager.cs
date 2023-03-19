@@ -1,27 +1,28 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class ButtonManager : MonoBehaviour
 {
-    public GameObject FurnitureObj;
-    public GameObject PlaneFinder;
-    public GameObject AnchorPlacement;
+    public GameObject furnitureObj;
+    public GameObject planeFinder;
+    public GameObject anchorPlacement;
     
     private int _objectCount = 0;
 
     public void SpawnObject()
     {
-        if (FurnitureObj != null)
+        if (furnitureObj != null)
         {
-            GameObject furniture = Instantiate(FurnitureObj, PlaneFinder.transform.GetChild(0).localPosition, Quaternion.identity,
-                AnchorPlacement.transform);
+            GameObject furniture = Instantiate(furnitureObj, planeFinder.transform.GetChild(0).localPosition, Quaternion.identity,
+                anchorPlacement.transform);
             _objectCount++;
-            furniture.name = FurnitureObj.name + _objectCount;
+            furniture.name = furnitureObj.name + _objectCount;
         }
     }
     
     public void DeleteAll()
     {
-        foreach (Transform child in AnchorPlacement.transform)
+        foreach (Transform child in anchorPlacement.transform)
         {
             Destroy(child.gameObject);
         }

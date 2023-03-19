@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DropdownHandler : MonoBehaviour
+public class SelectionDropdownHandler : MonoBehaviour
 {
     private Dropdown _dropdown;
     private int _objCount = 0;

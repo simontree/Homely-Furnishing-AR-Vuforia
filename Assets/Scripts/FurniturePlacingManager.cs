@@ -13,7 +13,7 @@ public class FurniturePlacingManager : MonoBehaviour
     
     private GameObject _furnitureObject;
 
-    public DropdownHandler dropdownHandler;
+    public SelectionDropdownHandler selectionDropdownHandler;
     public Dropdown dropdown;
 
     void Start()
@@ -36,7 +36,7 @@ public class FurniturePlacingManager : MonoBehaviour
                 var cameraToPlaneRay = _mainCamera.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(cameraToPlaneRay, out var cameraToPlaneHit))
                 {
-                    anchorPlacement.transform.GetChild(dropdownHandler.GetSelectedObjectIndex(dropdown)).position = cameraToPlaneHit.point;
+                    anchorPlacement.transform.GetChild(selectionDropdownHandler.GetSelectedObjectIndex(dropdown)).position = cameraToPlaneHit.point;
                 }
         }
     }
@@ -55,7 +55,7 @@ public class FurniturePlacingManager : MonoBehaviour
     /// </summary>
     public void OnContentPlaced()
     {
-        RotateTowardsCamera(anchorPlacement.transform.GetChild(dropdownHandler.GetSelectedObjectIndex(dropdown)).GameObject());
+        RotateTowardsCamera(anchorPlacement.transform.GetChild(selectionDropdownHandler.GetSelectedObjectIndex(dropdown)).GameObject());
         _isPlaced = true;
     }
     
