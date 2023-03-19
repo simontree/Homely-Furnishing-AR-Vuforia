@@ -39,9 +39,8 @@ public class FurniturePlacingManager : MonoBehaviour
                 {
                     // Debug.Log("snap function called.");
                     
-                    anchorPlacement.transform.GetChild(selectionDropdownHandler.GetSelectedObjectIndex(dropdown)).position = cameraToPlaneHit.point; 
-                    
-            }
+                    anchorPlacement.transform.GetChild(selectionDropdownHandler.GetSelectedObjectIndex(dropdown)).position = cameraToPlaneHit.point;
+                }
         }
     }
     
