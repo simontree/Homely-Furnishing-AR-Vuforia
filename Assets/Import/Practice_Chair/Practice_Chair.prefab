@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5838022506487503915}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: soprte f
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 2860349456458180032}
   - component: {fileID: 4073739381651081988}
   - component: {fileID: 8743137360239833620}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube_tela_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 965228750091171163}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: soport I
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,9 +156,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6886598436769807868}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Practice_Chair
-  m_TagString: Untagged
+  m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -170,9 +170,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2000875504464545869}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0.91703355, z: 0, w: -0.39881015}
+  m_LocalPosition: {x: 0.24561697, y: -0.48147735, z: -1.2050083}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6838992060992496989}
@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 8867719043953623592}
   - component: {fileID: 3727886314145970603}
   - component: {fileID: 389239170856373168}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: soport I_Material.001_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -273,7 +273,7 @@ GameObject:
   - component: {fileID: 1425939651342027549}
   - component: {fileID: 4116776759357030212}
   - component: {fileID: 8448404833421477110}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: base_Material.001_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -356,7 +356,7 @@ GameObject:
   - component: {fileID: 4582395512775835246}
   - component: {fileID: 3074333806500585470}
   - component: {fileID: 8783537492927073804}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.001_tela_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -437,7 +437,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6838992060992496989}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -473,7 +473,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7844807927514947234}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -508,7 +508,7 @@ GameObject:
   - component: {fileID: 5836966548257308969}
   - component: {fileID: 3215729611349934514}
   - component: {fileID: 7169296231784685567}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: soprte f_Material.001_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -589,7 +589,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6783071677013590202}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -623,7 +623,7 @@ GameObject:
   - component: {fileID: 5860086044755910461}
   - component: {fileID: 3723240263928845981}
   - component: {fileID: 7555761616388407481}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube.001_tela_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -704,7 +704,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2138744316404548305}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

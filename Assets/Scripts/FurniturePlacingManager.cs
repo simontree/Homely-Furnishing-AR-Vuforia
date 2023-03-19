@@ -23,6 +23,7 @@ public class FurniturePlacingManager : MonoBehaviour
     
     void Update()
     {
+        // TODO: add alert that object has to be selected to be dragged
         if (_isPlaced)
         {
             SnapObjectToMousePosition();
@@ -33,11 +34,14 @@ public class FurniturePlacingManager : MonoBehaviour
     {
         if (VuforiaRuntimeUtilities.IsPlayMode() && Input.GetMouseButton(0) && !UnityRuntimeCompiledFacade.Instance.IsUnityUICurrentlySelected())
         {
-                var cameraToPlaneRay = _mainCamera.ScreenPointToRay(Input.mousePosition);
+            var cameraToPlaneRay = _mainCamera.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(cameraToPlaneRay, out var cameraToPlaneHit))
                 {
-                    anchorPlacement.transform.GetChild(selectionDropdownHandler.GetSelectedObjectIndex(dropdown)).position = cameraToPlaneHit.point;
-                }
+                    // Debug.Log("snap function called.");
+                    
+                    anchorPlacement.transform.GetChild(selectionDropdownHandler.GetSelectedObjectIndex(dropdown)).position = cameraToPlaneHit.point; 
+                    
+            }
         }
     }
     
@@ -55,7 +59,8 @@ public class FurniturePlacingManager : MonoBehaviour
     /// </summary>
     public void OnContentPlaced()
     {
-        RotateTowardsCamera(anchorPlacement.transform.GetChild(selectionDropdownHandler.GetSelectedObjectIndex(dropdown)).GameObject());
+        Debug.Log("Content placed");
+            RotateTowardsCamera(anchorPlacement.transform.GetChild(selectionDropdownHandler.GetSelectedObjectIndex(dropdown)).GameObject());
         _isPlaced = true;
     }
     

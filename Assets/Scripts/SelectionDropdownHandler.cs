@@ -7,14 +7,18 @@ public class SelectionDropdownHandler : MonoBehaviour
     private Dropdown _dropdown;
     private int _objCount = 0;
 
-    
     private void Awake()
     {
         _dropdown = GetComponent<Dropdown>();
+        _dropdown.options.Add(new Dropdown.OptionData( "No Objects yet."));
     }
     private void Start()
-    {
-        _dropdown.onValueChanged.AddListener(delegate { GetSelectedObjectIndex(_dropdown); });
+    {   
+        
+        _dropdown.onValueChanged.AddListener(delegate
+        {
+            GetSelectedObjectIndex(_dropdown);
+        });
     }
 
     public void AddObject(GameObject furnitureObj)
@@ -27,6 +31,6 @@ public class SelectionDropdownHandler : MonoBehaviour
 
     public int GetSelectedObjectIndex(Dropdown dropdown)
     {
-        return dropdown.value;
+        return dropdown.value-1;
     }
 }

@@ -1,45 +1,123 @@
 using System;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class MaterialDropdownHandler : MonoBehaviour
 {
-    private Dropdown _dropdown;
-    public Material[] materials;
+    public Dropdown materialDropdown;
+    public Dropdown selectionDropdown;
+    public Material[] chairMaterials; 
+    public Material[] tableMaterials;
+    public Material[] sofaMaterials;
     
     public GameObject anchorPlacement;
     public SelectionDropdownHandler selectionDropdownHandler;
-    public Dropdown dropdown;
-    private void Awake()
-    {
-        _dropdown = GetComponent<Dropdown>();
-    }
+
+    private Dictionary<int, Material> _savedMaterials;
+    private int _objectType;
+
     private void Start()
     {
-        InstantiateDropdownOptions();
-        // _dropdown.onValueChanged.AddListener(delegate { GetSelectedObjectIndex(_dropdown); });
-        // GetMaterial();
-    }
+        Debug.Log("materialdropdownhandler started.");
 
-    public void InstantiateDropdownOptions()
-    {
-        foreach (var material in materials)
+        //First selected object --> retrieve materials to it
+        // var firstSelectedObject = selectionDropdown.value;
+        
+        
+        
+        // GetDropdownOptions(GetObjectType());
+        
+        // Debug.Log("selectionDropdown.value: "+selectionDropdown.value);
+        
+        
+        selectionDropdown.onValueChanged.AddListener(delegate
         {
-            var option = new Dropdown.OptionData(material.name);
-            _dropdown.options.Add(option);
-        }
-        _dropdown.RefreshShownValue();
+            GetDropdownOptions(GetObjectType());
+        });
+        materialDropdown.onValueChanged.AddListener(delegate
+        {
+            var material = anchorPlacement.transform
+                .GetChild(selectionDropdownHandler.GetSelectedObjectIndex(selectionDropdown)).GetChild(0)
+                .GetComponent<MeshRenderer>().material;
+            // SaveMaterial(selectionDropdown.value, material);
+            // Debug.Log("saved material with index: "+selectionDropdown.value+" and value: "+material);
+        });
     }
 
-    // public int GetSelectedObjectIndex(Dropdown dropdown)
+    // private void Update()
     // {
-    //     return dropdown.value;
+    //     Debug.Log("objectType: " + getObjectType());
     // }
 
-    public void GetMaterial()
+    private int GetObjectType()
     {
-        Debug.Log("renderer: " + anchorPlacement.transform
-            .GetChild(selectionDropdownHandler.GetSelectedObjectIndex(dropdown)).GetChild(0)
-            .GetComponent<MeshRenderer>().material);
+        if (anchorPlacement.transform.childCount > 0)
+        {
+            var objectName = anchorPlacement.transform
+                .GetChild(selectionDropdownHandler.GetSelectedObjectIndex(selectionDropdown)).name;
+            if (objectName.Contains("Table"))
+            {
+                return 0;
+            }
+            if (objectName.Contains("sofa"))
+            {
+                return 1;
+            }
+            if (objectName.Contains("Chair"))
+            {
+                return 2;
+            }
+        }
+        return -1; // no object type found
+    }
+
+    private void SaveMaterial(int index, Material material)
+    {
+        _savedMaterials[index] = material;
+        Debug.Log("savedMaterials: "+_savedMaterials.Count);
+    }
+    public void GetSavedMaterial()
+    {
+        // Debug.Log("renderer: " + anchorPlacement.transform
+        // .GetChild(selectionDropdownHandler.GetSelectedObjectIndex(selectionDropdown)).GetChild(0)
+        // .GetComponent<MeshRenderer>().material);
+    }
+    public void GetDropdownOptions(int _objectType)
+    {
+        materialDropdown.ClearOptions();
+        switch (_objectType)
+        {
+            case 0:
+            {
+                foreach (var material in tableMaterials)
+                {
+                    var option = new Dropdown.OptionData(material.name);
+                    materialDropdown.options.Add(option);
+                }
+                break;
+            }
+            case 1:
+            {
+                foreach (var material in sofaMaterials)
+                {
+                    var option = new Dropdown.OptionData(material.name);
+                    materialDropdown.options.Add(option);
+                }
+                break;
+            }
+            case 2:
+            {
+                foreach (var material in chairMaterials)
+                {
+                    var option = new Dropdown.OptionData(material.name);
+                    materialDropdown.options.Add(option);
+                }
+                break;
+                }
+            }
+        materialDropdown.RefreshShownValue();
     }
 }
