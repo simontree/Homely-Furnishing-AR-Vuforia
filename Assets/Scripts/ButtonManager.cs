@@ -1,11 +1,15 @@
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class ButtonManager : MonoBehaviour
 {
     public GameObject furnitureObj;
     public GameObject planeFinder;
     public GameObject anchorPlacement;
+    
+    public Dropdown materialDropdown;
+    public Dropdown selectionDropdown;
     
     private int _objectCount = 0;
 
@@ -26,5 +30,7 @@ public class ButtonManager : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+        selectionDropdown.ClearOptions();
+        materialDropdown.ClearOptions();
     }
 }

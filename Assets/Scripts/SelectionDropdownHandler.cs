@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class SelectionDropdownHandler : MonoBehaviour
 {
     private Dropdown _dropdown;
-    private int _objCount = 0;
+    public int _objCount = 0;
 
     private void Awake()
     {
@@ -13,8 +13,7 @@ public class SelectionDropdownHandler : MonoBehaviour
         _dropdown.options.Add(new Dropdown.OptionData( "No Objects yet."));
     }
     private void Start()
-    {   
-        
+    {
         _dropdown.onValueChanged.AddListener(delegate
         {
             GetSelectedObjectIndex(_dropdown);
