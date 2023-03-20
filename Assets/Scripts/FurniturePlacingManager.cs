@@ -1,6 +1,5 @@
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Vuforia;
 using Vuforia.UnityRuntimeCompiled;
@@ -15,15 +14,10 @@ public class FurniturePlacingManager : MonoBehaviour
     public SelectionDropdownHandler selectionDropdownHandler;
     public Dropdown dropdown;
 
-    private Vector3 rotation;
-    [SerializeField] private float speed;
-
-    private bool _rotated;
-
+    [SerializeField] private ButtonManager buttonManager;
     void Start()
     {
         _mainCamera = VuforiaBehaviour.Instance.GetComponent<Camera>();
-        _rotated = false;
     }
 
     private Transform GetFurnitureObjectTransform()
@@ -37,11 +31,6 @@ public class FurniturePlacingManager : MonoBehaviour
         if (_isPlaced)
         {
             SnapObjectToMousePosition();
-        }
-
-        if (anchorPlacement.transform.childCount > 0)
-        {
-            RotateObject();
         }
     }
     
@@ -71,19 +60,10 @@ public class FurniturePlacingManager : MonoBehaviour
     /// </summary>
     public void OnContentPlaced()
     {
-        if (_rotated == false)
+        if (buttonManager.WasRotated() == false)
         {
             RotateTowardsCamera(GetFurnitureObjectTransform().GameObject());
         }
         _isPlaced = true;
-    }
-
-    private void RotateObject()
-    {
-        if(Input.GetKey(KeyCode.A)) rotation = Vector3.up;
-        else if (Input.GetKey(KeyCode.D)) rotation = Vector3.down;
-        else rotation = Vector3.zero;
-        GetFurnitureObjectTransform().Rotate(speed * Time.deltaTime * rotation);
-        _rotated = true;
     }
 }
