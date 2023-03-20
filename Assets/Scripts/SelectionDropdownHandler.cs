@@ -28,6 +28,7 @@ public class SelectionDropdownHandler : MonoBehaviour
         _objCount++;
         var option = new Dropdown.OptionData("Object "+_objCount+": "+furnitureObj.name);
         _dropdown.options.Add(option);
+        _dropdown.value = _objCount-1;
         _dropdown.RefreshShownValue();
     }
 
