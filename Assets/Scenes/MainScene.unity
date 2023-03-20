@@ -2176,7 +2176,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -313, y: 2}
+  m_AnchoredPosition: {x: -519, y: 2}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1389394790
@@ -2305,7 +2305,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -559, y: 1.413}
+  m_AnchoredPosition: {x: -645, y: 1.413}
   m_SizeDelta: {x: 160, y: 114.766}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1434721009
@@ -3222,6 +3222,7 @@ MonoBehaviour:
   anchorPlacement: {fileID: 1962257565}
   selectionDropdownHandler: {fileID: 1520401027}
   dropdown: {fileID: 1520401028}
+  speed: 70
 --- !u!4 &1636427866
 Transform:
   m_ObjectHideFlags: 0
@@ -3275,7 +3276,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 93, y: 2}
+  m_AnchoredPosition: {x: -147, y: 2}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1673560413
@@ -3761,7 +3762,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 810, y: 1.413}
+  m_AnchoredPosition: {x: 827, y: 1.413}
   m_SizeDelta: {x: 160, y: 114.766}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1778691830
@@ -4557,7 +4558,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -285, y: 1.413}
+  m_AnchoredPosition: {x: -461, y: 1.413}
   m_SizeDelta: {x: 160, y: 114.766}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2112832789

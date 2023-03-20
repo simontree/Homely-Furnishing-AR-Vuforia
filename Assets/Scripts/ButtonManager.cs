@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -10,9 +11,9 @@ public class ButtonManager : MonoBehaviour
     
     public Dropdown materialDropdown;
     public Dropdown selectionDropdown;
-    
-    private int _objectCount = 0;
 
+    private int _objectCount = 0;
+    
     public void SpawnObject()
     {
         if (furnitureObj != null)
