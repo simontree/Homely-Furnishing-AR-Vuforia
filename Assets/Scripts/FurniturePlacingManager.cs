@@ -37,8 +37,7 @@ public class FurniturePlacingManager : MonoBehaviour
             var cameraToPlaneRay = _mainCamera.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(cameraToPlaneRay, out var cameraToPlaneHit))
                 {
-                    // Debug.Log("snap function called.");
-                    
+                    Debug.Log("index: "+selectionDropdownHandler.GetSelectedObjectIndex(dropdown));
                     anchorPlacement.transform.GetChild(selectionDropdownHandler.GetSelectedObjectIndex(dropdown)).position = cameraToPlaneHit.point;
                 }
         }

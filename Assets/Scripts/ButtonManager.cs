@@ -30,6 +30,7 @@ public class ButtonManager : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+        _objectCount = 0;
         selectionDropdown.ClearOptions();
         materialDropdown.ClearOptions();
     }
