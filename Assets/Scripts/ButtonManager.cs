@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -15,12 +14,12 @@ public class ButtonManager : MonoBehaviour
 
     private int _objectCount = 0;
     
-    private Vector3 rotation;
+    private Vector3 _rotation;
     [SerializeField] private float speed;
 
     private bool _rotated;
 
-    public bool rotateRightButttonPressed = false;
+    public bool rotateRightButtonPressed = false;
     public bool rotateLeftButtonPressed = false;
     
     public void SpawnObject()
@@ -31,12 +30,13 @@ public class ButtonManager : MonoBehaviour
                 anchorPlacement.transform);
             _objectCount++;
             furniture.name = furnitureObj.name + _objectCount;
+            _rotated = false;
         }
     }
 
     private void Update()
     {
-        while (rotateLeftButtonPressed || rotateRightButttonPressed)
+        while (rotateLeftButtonPressed || rotateRightButtonPressed)
         {
             RotateObject();
         }
@@ -51,6 +51,7 @@ public class ButtonManager : MonoBehaviour
         _objectCount = 0;
         selectionDropdown.ClearOptions();
         materialDropdown.ClearOptions();
+        _rotated = false;
     }
 
     public bool WasRotated()
@@ -58,23 +59,23 @@ public class ButtonManager : MonoBehaviour
         return _rotated;
     }
 
-    void RotateObject()
+    private void RotateObject()
     {
         if (anchorPlacement.transform.childCount > 0)
         {
             if (rotateLeftButtonPressed)
             {
-                rotation = Vector3.down * 10;
+                _rotation = Vector3.down * 10;
                 rotateLeftButtonPressed = false;
             }
 
-            if (rotateRightButttonPressed)
+            if (rotateRightButtonPressed)
             {
-                rotation = Vector3.up * 10;
-                rotateRightButttonPressed = false;
+                _rotation = Vector3.up * 10;
+                rotateRightButtonPressed = false;
             }
             
-            GetFurnitureObjectTransform().Rotate(speed * Time.deltaTime * rotation);
+            GetFurnitureObjectTransform().Rotate(speed * Time.deltaTime * _rotation);
             _rotated = true;
         }
     }
@@ -84,7 +85,7 @@ public class ButtonManager : MonoBehaviour
     }
     public void RotateObjectRight()
     {
-        rotateRightButttonPressed = true;
+        rotateRightButtonPressed = true;
     }
 
     private Transform GetFurnitureObjectTransform()
