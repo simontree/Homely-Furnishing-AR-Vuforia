@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6728128090224579800}
   m_Layer: 0
-  m_Name: Low_Poly_Chair
+  m_Name: Chair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

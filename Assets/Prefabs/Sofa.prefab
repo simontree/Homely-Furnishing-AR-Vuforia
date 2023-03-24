@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1437604868041788166
+--- !u!1 &3124000850552859444
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,46 +8,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7291673452993205459}
-  - component: {fileID: 6270675749639045955}
-  - component: {fileID: 174372660089637712}
+  - component: {fileID: 4082500022066496391}
+  - component: {fileID: 2637171529690014500}
+  - component: {fileID: 3022931526638314231}
   m_Layer: 6
-  m_Name: Table_Table01_0
+  m_Name: Cube_Material.001_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7291673452993205459
+--- !u!4 &4082500022066496391
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1437604868041788166}
-  m_LocalRotation: {x: 0.22787476, y: -0.6693827, z: 0.22787483, w: -0.6693826}
-  m_LocalPosition: {x: 0, y: 0.35982502, z: -0.07481105}
-  m_LocalScale: {x: 0.42479846, y: 0.42479843, z: 0.4247983}
+  m_GameObject: {fileID: 3124000850552859444}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0.7071068, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.39999998, y: 0.28401282, z: 0.087790094}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6713186472765612333}
+  m_Father: {fileID: 3470440845786321865}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &6270675749639045955
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 180}
+--- !u!33 &2637171529690014500
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1437604868041788166}
-  m_Mesh: {fileID: 4300000, guid: 5cc041cfa246b444792703cd07344609, type: 2}
---- !u!23 &174372660089637712
+  m_GameObject: {fileID: 3124000850552859444}
+  m_Mesh: {fileID: 4300000, guid: b15ef2d0079d66f4db43c46c13d3fc3e, type: 2}
+--- !u!23 &3022931526638314231
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1437604868041788166}
+  m_GameObject: {fileID: 3124000850552859444}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9986a2ad0c5241c4dab302b439ca842d, type: 2}
+  - {fileID: 2100000, guid: 265c5fdc554c01f4fa0de12978a67fad, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,7 +83,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &3117001857188426566
+--- !u!1 &7314858532435081497
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,27 +91,27 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6713186472765612333}
+  - component: {fileID: 3470440845786321865}
   m_Layer: 6
-  m_Name: Wooden_Table
+  m_Name: Sofa
   m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6713186472765612333
+--- !u!4 &3470440845786321865
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3117001857188426566}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_GameObject: {fileID: 7314858532435081497}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 7291673452993205459}
+  - {fileID: 4082500022066496391}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}

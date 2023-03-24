@@ -71,7 +71,7 @@ public class MaterialDropdownHandler : MonoBehaviour
             {
                 return 0;
             }
-            if (objectName.Contains("sofa"))
+            if (objectName.Contains("Sofa"))
             {
                 return 1;
             }
