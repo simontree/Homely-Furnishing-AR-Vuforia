@@ -16,10 +16,6 @@ public class MaterialDropdownHandler : MonoBehaviour
 
     private void Start()
     {
-        selectionDropdown.onValueChanged.AddListener(delegate
-        {
-            GetDropdownOptions(GetObjectType());
-        });
         materialDropdown.onValueChanged.AddListener(delegate
         {
             switch (GetObjectType())
@@ -43,6 +39,19 @@ public class MaterialDropdownHandler : MonoBehaviour
         });
     }
 
+    private void Update()
+    {
+        if (anchorPlacement.transform.childCount > 0)
+        {
+            GetDropdownOptions(GetObjectType());
+        }
+
+        if (anchorPlacement.transform.childCount == 0)
+        {
+            materialDropdown.ClearOptions();
+        }
+    }
+
     private void SetMaterial(Material materialToSet)
     {
         anchorPlacement.transform
@@ -50,12 +59,14 @@ public class MaterialDropdownHandler : MonoBehaviour
             .GetComponent<MeshRenderer>().material = materialToSet;
     }
 
-    private int GetObjectType()
+    public int GetObjectType()
     {
         if (anchorPlacement.transform.childCount > 0)
         {
             var objectName = anchorPlacement.transform
-                .GetChild(selectionDropdownHandler.GetSelectedObjectIndex(selectionDropdown)).name;
+                .GetChild(
+                    selectionDropdownHandler.GetSelectedObjectIndex(selectionDropdown)
+                    ).name;
             if (objectName.Contains("Table"))
             {
                 return 0;
@@ -83,6 +94,7 @@ public class MaterialDropdownHandler : MonoBehaviour
                 {
                     var option = new Dropdown.OptionData(material.name);
                     materialDropdown.options.Add(option);
+                    materialDropdown.RefreshShownValue();
                 }
                 break;
             }
@@ -92,6 +104,7 @@ public class MaterialDropdownHandler : MonoBehaviour
                 {
                     var option = new Dropdown.OptionData(material.name);
                     materialDropdown.options.Add(option);
+                    materialDropdown.RefreshShownValue();
                 }
                 break;
             }
@@ -101,10 +114,10 @@ public class MaterialDropdownHandler : MonoBehaviour
                 {
                     var option = new Dropdown.OptionData(material.name);
                     materialDropdown.options.Add(option);
+                    materialDropdown.RefreshShownValue();
                 }
                 break;
                 }
             }
-        materialDropdown.RefreshShownValue();
     }
 }

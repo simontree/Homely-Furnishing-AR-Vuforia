@@ -3,32 +3,32 @@ using UnityEngine.UI;
 
 public class SelectionDropdownHandler : MonoBehaviour
 {
-    private Dropdown _dropdown;
-    public int _objCount = 0;
+    private Dropdown _selectionDropdown;
+    public int objCount = 0;
 
     private void Awake()
     {
-        _dropdown = GetComponent<Dropdown>();
+        _selectionDropdown = GetComponent<Dropdown>();
     }
-    private void Start()
+    public void Start()
     {
-        _dropdown.onValueChanged.AddListener(delegate
+        _selectionDropdown.onValueChanged.AddListener(delegate
         {
-            GetSelectedObjectIndex(_dropdown);
+            GetSelectedObjectIndex(_selectionDropdown);
         });
     }
 
     public void AddObject(GameObject furnitureObj)
     {
-        if (_dropdown.options.Count == 0)
+        if (_selectionDropdown.options.Count == 0)
         {
-            _objCount = 0;
+            objCount = 0;
         }
-        _objCount++;
-        var option = new Dropdown.OptionData("Object "+_objCount+": "+furnitureObj.name);
-        _dropdown.options.Add(option);
-        _dropdown.value = _objCount-1;
-        _dropdown.RefreshShownValue();
+        objCount++;
+        var option = new Dropdown.OptionData("Object "+objCount+": "+furnitureObj.name);
+        _selectionDropdown.options.Add(option);
+        _selectionDropdown.RefreshShownValue();
+        _selectionDropdown.value = objCount-1;
     }
 
     public int GetSelectedObjectIndex(Dropdown dropdown)
