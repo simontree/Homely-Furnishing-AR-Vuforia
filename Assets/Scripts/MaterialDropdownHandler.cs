@@ -27,19 +27,19 @@ public class MaterialDropdownHandler : MonoBehaviour
                 case 0:
                 {
                     SetMaterial(tableMaterials[_materialDropdown.value]);
-                    GetFurnitureObjectTransform().GetComponent<MaterialStoreManager>().SetMaterialChanged(true);
+                    GetFurnitureObjectTransform().GetComponent<MaterialStore>().SetMaterialChanged(true);
                     break;
                 }
                 case 1:
                 {
                     SetMaterial(sofaMaterials[_materialDropdown.value]);
-                    GetFurnitureObjectTransform().GetComponent<MaterialStoreManager>().SetMaterialChanged(true);
+                    GetFurnitureObjectTransform().GetComponent<MaterialStore>().SetMaterialChanged(true);
                     break;
                 }
                 case 2:
                 {
                     SetMaterial(chairMaterials[_materialDropdown.value]);
-                    GetFurnitureObjectTransform().GetComponent<MaterialStoreManager>().SetMaterialChanged(true);
+                    GetFurnitureObjectTransform().GetComponent<MaterialStore>().SetMaterialChanged(true);
                     break;
                 }
             }
@@ -53,7 +53,7 @@ public class MaterialDropdownHandler : MonoBehaviour
                     .GetComponent<MeshRenderer>().material;
                 GetDropdownOptions(GetObjectType());
                 
-                if (GetFurnitureObjectTransform().GetComponent<MaterialStoreManager>()
+                if (GetFurnitureObjectTransform().GetComponent<MaterialStore>()
                     .GetHasMaterialChanged())
                 {
                     _materialDropdown.value =

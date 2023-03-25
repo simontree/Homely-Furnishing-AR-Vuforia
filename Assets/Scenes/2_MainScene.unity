@@ -4057,15 +4057,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectionDropdown: {fileID: 1520401028}
   chairMaterials:
-  - {fileID: 2100000, guid: f18c8192d8789c347a4460170b072172, type: 2}
+  - {fileID: 2100000, guid: e007f6c00bdfbb74f875ebc6fc26a9e9, type: 2}
   - {fileID: 2100000, guid: 30a3a1da2bfc9f141809d36711ec9433, type: 2}
   - {fileID: 2100000, guid: 939be4e4dd1c85548901dc7968ac9f7d, type: 2}
   tableMaterials:
-  - {fileID: 2100000, guid: 30a3a1da2bfc9f141809d36711ec9433, type: 2}
+  - {fileID: 2100000, guid: 9986a2ad0c5241c4dab302b439ca842d, type: 2}
   - {fileID: 2100000, guid: 939be4e4dd1c85548901dc7968ac9f7d, type: 2}
   - {fileID: 2100000, guid: f18c8192d8789c347a4460170b072172, type: 2}
   sofaMaterials:
-  - {fileID: 2100000, guid: 939be4e4dd1c85548901dc7968ac9f7d, type: 2}
+  - {fileID: 2100000, guid: 265c5fdc554c01f4fa0de12978a67fad, type: 2}
   - {fileID: 2100000, guid: f18c8192d8789c347a4460170b072172, type: 2}
   - {fileID: 2100000, guid: 30a3a1da2bfc9f141809d36711ec9433, type: 2}
   anchorPlacement: {fileID: 1962257565}

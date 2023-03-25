@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MaterialStoreManager : MonoBehaviour
+public class MaterialStore : MonoBehaviour
 {
     private bool _hasMaterialChanged;
     public void SetMaterialChanged(bool materialChanged)

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6728128090224579800}
-  - component: {fileID: -7116861390039356036}
+  - component: {fileID: -6327921244336264102}
   m_Layer: 0
   m_Name: Chair
   m_TagString: Untagged
@@ -33,7 +33,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!114 &-7116861390039356036
+--- !u!114 &-6327921244336264102
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
