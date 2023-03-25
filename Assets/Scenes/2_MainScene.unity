@@ -989,62 +989,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!1 &499842852
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 499842853}
-  - component: {fileID: 499842854}
-  m_Layer: 5
-  m_Name: SofaMaterialManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &499842853
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 499842852}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1658555590}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &499842854
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 499842852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 907d69bef76cd5a4d937da95b23430f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  materialDropdown: {fileID: 1775269403}
-  selectionDropdown: {fileID: 1520401028}
-  chairMaterials: []
-  tableMaterials: []
-  sofaMaterials: []
-  anchorPlacement: {fileID: 1962257565}
-  selectionDropdownHandler: {fileID: 1520401027}
 --- !u!1 &588871312
 GameObject:
   m_ObjectHideFlags: 0
@@ -1611,6 +1555,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 1495809175394858482, guid: bcc834cbc8fabe5418f342adda5ee872, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1775269406}
+        m_TargetAssemblyTypeName: MaterialDropdownHandler, Assembly-CSharp
+        m_MethodName: RefreshMaterialOptionsOnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2671,6 +2627,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1775269406}
+        m_TargetAssemblyTypeName: MaterialDropdownHandler, Assembly-CSharp
+        m_MethodName: RefreshMaterialOptionsOnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1434721010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3406,62 +3374,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1527403905}
   m_CullTransparentMesh: 1
---- !u!1 &1577268214
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1577268215}
-  - component: {fileID: 1577268216}
-  m_Layer: 5
-  m_Name: TableMaterialManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &1577268215
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1577268214}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1658555590}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1577268216
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1577268214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 907d69bef76cd5a4d937da95b23430f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  materialDropdown: {fileID: 1775269403}
-  selectionDropdown: {fileID: 1520401028}
-  chairMaterials: []
-  tableMaterials: []
-  sofaMaterials: []
-  anchorPlacement: {fileID: 1962257565}
-  selectionDropdownHandler: {fileID: 1520401027}
 --- !u!1 &1605692063
 GameObject:
   m_ObjectHideFlags: 0
@@ -3704,9 +3616,6 @@ RectTransform:
   m_Children:
   - {fileID: 1094908193}
   - {fileID: 1775269401}
-  - {fileID: 1577268215}
-  - {fileID: 499842853}
-  - {fileID: 1893113955}
   m_Father: {fileID: 1093233338}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3975,14 +3884,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.93333334, g: 0.87058824, b: 0.8117647, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4146,7 +4055,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 907d69bef76cd5a4d937da95b23430f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  materialDropdown: {fileID: 1775269403}
   selectionDropdown: {fileID: 1520401028}
   chairMaterials:
   - {fileID: 2100000, guid: f18c8192d8789c347a4460170b072172, type: 2}
@@ -4162,6 +4070,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 30a3a1da2bfc9f141809d36711ec9433, type: 2}
   anchorPlacement: {fileID: 1962257565}
   selectionDropdownHandler: {fileID: 1520401027}
+  labelText: {fileID: 1460786335}
 --- !u!1 &1778691828
 GameObject:
   m_ObjectHideFlags: 0
@@ -4447,62 +4356,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_MaxRayIntersections: 0
---- !u!1 &1893113954
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1893113955}
-  - component: {fileID: 1893113956}
-  m_Layer: 5
-  m_Name: ChairMaterialManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &1893113955
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1893113954}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1658555590}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.000030517578}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1893113956
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1893113954}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 907d69bef76cd5a4d937da95b23430f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  materialDropdown: {fileID: 1775269403}
-  selectionDropdown: {fileID: 1520401028}
-  chairMaterials: []
-  tableMaterials: []
-  sofaMaterials: []
-  anchorPlacement: {fileID: 1962257565}
-  selectionDropdownHandler: {fileID: 1520401027}
 --- !u!1 &1909714957
 GameObject:
   m_ObjectHideFlags: 0
@@ -5239,6 +5092,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 7314858532435081497, guid: 9e3209d07d89b6f46b33fd60a1a6ccf6, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1775269406}
+        m_TargetAssemblyTypeName: MaterialDropdownHandler, Assembly-CSharp
+        m_MethodName: RefreshMaterialOptionsOnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

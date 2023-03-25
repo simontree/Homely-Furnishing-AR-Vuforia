@@ -9,13 +9,7 @@ public class SelectionDropdownHandler : MonoBehaviour
     private void Awake()
     {
         _selectionDropdown = GetComponent<Dropdown>();
-    }
-    public void Start()
-    {
-        _selectionDropdown.onValueChanged.AddListener(delegate
-        {
-            GetSelectedObjectIndex(_selectionDropdown);
-        });
+        _selectionDropdown.value = 0;
     }
 
     public void AddObject(GameObject furnitureObj)

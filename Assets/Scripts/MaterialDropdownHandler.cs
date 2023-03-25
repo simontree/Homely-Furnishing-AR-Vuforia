@@ -3,53 +3,74 @@ using UnityEngine.UI;
 
 public class MaterialDropdownHandler : MonoBehaviour
 {
-    public Dropdown materialDropdown;
+    private Dropdown _materialDropdown;
     public Dropdown selectionDropdown;
     public Material[] chairMaterials; 
     public Material[] tableMaterials;
     public Material[] sofaMaterials;
-    
     public GameObject anchorPlacement;
     public SelectionDropdownHandler selectionDropdownHandler;
-
     private int _objectType;
+    [SerializeField] private Text labelText;
+
+    private void Awake()
+    {
+        _materialDropdown = GetComponent<Dropdown>();
+    }
 
     private void Start()
     {
-        materialDropdown.onValueChanged.AddListener(delegate
+        _materialDropdown.onValueChanged.AddListener(delegate
         {
             switch (GetObjectType())
             {
                 case 0:
                 {
-                    SetMaterial(tableMaterials[materialDropdown.value]);
+                    SetMaterial(tableMaterials[_materialDropdown.value]);
+                    GetFurnitureObjectTransform().GetComponent<MaterialStoreManager>().SetMaterialChanged(true);
                     break;
                 }
                 case 1:
                 {
-                    SetMaterial(sofaMaterials[materialDropdown.value]);
+                    SetMaterial(sofaMaterials[_materialDropdown.value]);
+                    GetFurnitureObjectTransform().GetComponent<MaterialStoreManager>().SetMaterialChanged(true);
                     break;
                 }
                 case 2:
                 {
-                    SetMaterial(chairMaterials[materialDropdown.value]);
+                    SetMaterial(chairMaterials[_materialDropdown.value]);
+                    GetFurnitureObjectTransform().GetComponent<MaterialStoreManager>().SetMaterialChanged(true);
                     break;
                 }
             }
         });
+        selectionDropdown.onValueChanged.AddListener(delegate
+        {
+            if (anchorPlacement.transform.childCount > 0)
+            {
+                var selectedChildsMaterial = anchorPlacement.transform
+                    .GetChild(selectionDropdownHandler.GetSelectedObjectIndex(selectionDropdown)).GetChild(0)
+                    .GetComponent<MeshRenderer>().material;
+                GetDropdownOptions(GetObjectType());
+                
+                if (GetFurnitureObjectTransform().GetComponent<MaterialStoreManager>()
+                    .GetHasMaterialChanged())
+                {
+                    _materialDropdown.value =
+                        _materialDropdown.options.FindIndex(option => selectedChildsMaterial.name.Contains(option.text));
+                }
+            }
+
+            if (anchorPlacement.transform.childCount == 0)
+            {
+                _materialDropdown.ClearOptions();
+            }
+        });
     }
 
-    private void Update()
+    public void RefreshMaterialOptionsOnClick()
     {
-        if (anchorPlacement.transform.childCount > 0)
-        {
-            GetDropdownOptions(GetObjectType());
-        }
-
-        if (anchorPlacement.transform.childCount == 0)
-        {
-            materialDropdown.ClearOptions();
-        }
+        GetDropdownOptions(GetObjectType());
     }
 
     private void SetMaterial(Material materialToSet)
@@ -82,10 +103,17 @@ public class MaterialDropdownHandler : MonoBehaviour
         }
         return -1; // no object type found
     }
-    
-    public void GetDropdownOptions(int _objectType)
+
+    private Transform GetFurnitureObjectTransform()
     {
-        materialDropdown.ClearOptions();
+        return anchorPlacement.transform
+            .GetChild(
+                selectionDropdownHandler.GetSelectedObjectIndex(selectionDropdown));
+    }
+    
+    private void GetDropdownOptions(int _objectType)
+    {
+        _materialDropdown.ClearOptions();
         switch (_objectType)
         {
             case 0:
@@ -93,8 +121,7 @@ public class MaterialDropdownHandler : MonoBehaviour
                 foreach (var material in tableMaterials)
                 {
                     var option = new Dropdown.OptionData(material.name);
-                    materialDropdown.options.Add(option);
-                    materialDropdown.RefreshShownValue();
+                    _materialDropdown.options.Add(option);
                 }
                 break;
             }
@@ -103,8 +130,7 @@ public class MaterialDropdownHandler : MonoBehaviour
                 foreach (var material in sofaMaterials)
                 {
                     var option = new Dropdown.OptionData(material.name);
-                    materialDropdown.options.Add(option);
-                    materialDropdown.RefreshShownValue();
+                    _materialDropdown.options.Add(option);
                 }
                 break;
             }
@@ -113,11 +139,11 @@ public class MaterialDropdownHandler : MonoBehaviour
                 foreach (var material in chairMaterials)
                 {
                     var option = new Dropdown.OptionData(material.name);
-                    materialDropdown.options.Add(option);
-                    materialDropdown.RefreshShownValue();
+                    _materialDropdown.options.Add(option);
                 }
                 break;
                 }
             }
+        _materialDropdown.RefreshShownValue();
     }
 }
