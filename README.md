@@ -2,7 +2,7 @@
  
 This is a project work within the course "special applications of computer science" of the HTW berlin.
 
-![Screenshot](Assets/Media/screenshots/introscene.png)
+![Screenshot](Assets/Media/screenshots/introscene.png) ![Screenshot](Assets/Media/screenshots/tutorialscene.png) ![Screenshot](Assets/Media/screenshots/mainscene.png)
 
 Technologies used:
 - Unity 3D 2021.3.20f1
