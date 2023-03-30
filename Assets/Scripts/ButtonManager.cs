@@ -16,8 +16,6 @@ public class ButtonManager : MonoBehaviour
     private Vector3 _rotation;
     [SerializeField] private float speed;
 
-    private bool _rotated;
-
     public bool rotateRightButtonPressed = false;
     public bool rotateLeftButtonPressed = false;
     
@@ -29,7 +27,7 @@ public class ButtonManager : MonoBehaviour
                 anchorPlacement.transform);
             _objectCount++;
             furniture.name = furnitureObj.name + _objectCount;
-            _rotated = false;
+            SetRotated(false);
         }
     }
 
@@ -50,12 +48,17 @@ public class ButtonManager : MonoBehaviour
         _objectCount = 0;
         selectionDropdown.ClearOptions();
         materialDropdown.ClearOptions();
-        _rotated = false;
     }
 
     public bool WasRotated()
     {
-        return _rotated;
+        return GetFurnitureObjectTransform().GetComponent<RotationStore>().GetWasRotated();
+    }
+
+    private void SetRotated(bool rotated)
+    {
+        GetFurnitureObjectTransform().GetComponent<RotationStore>()
+            .SetWasRotated(rotated);
     }
 
     private void RotateObject()
@@ -75,7 +78,7 @@ public class ButtonManager : MonoBehaviour
             }
             
             GetFurnitureObjectTransform().Rotate(speed * Time.deltaTime * _rotation);
-            _rotated = true;
+            SetRotated(true);
         }
     }
     public void RotateObjectLeft()

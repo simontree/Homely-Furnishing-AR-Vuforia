@@ -1625,8 +1625,8 @@ MonoBehaviour:
   furnitureObj: {fileID: 1495809175394858482, guid: bcc834cbc8fabe5418f342adda5ee872, type: 3}
   planeFinder: {fileID: 336172075}
   anchorPlacement: {fileID: 1962257565}
-  materialDropdown: {fileID: 0}
-  selectionDropdown: {fileID: 0}
+  materialDropdown: {fileID: 1775269403}
+  selectionDropdown: {fileID: 1520401028}
   selectionDropdownHandler: {fileID: 1520401027}
   speed: 0
   rotateRightButtonPressed: 0
@@ -2692,8 +2692,8 @@ MonoBehaviour:
   furnitureObj: {fileID: 3117001857188426566, guid: e15566f923f3eb849b7078cdea66d9db, type: 3}
   planeFinder: {fileID: 336172075}
   anchorPlacement: {fileID: 1962257565}
-  materialDropdown: {fileID: 0}
-  selectionDropdown: {fileID: 0}
+  materialDropdown: {fileID: 1775269403}
+  selectionDropdown: {fileID: 1520401028}
   selectionDropdownHandler: {fileID: 1520401027}
   speed: 0
   rotateRightButtonPressed: 0
@@ -5162,8 +5162,8 @@ MonoBehaviour:
   furnitureObj: {fileID: 7314858532435081497, guid: 9e3209d07d89b6f46b33fd60a1a6ccf6, type: 3}
   planeFinder: {fileID: 336172075}
   anchorPlacement: {fileID: 1962257565}
-  materialDropdown: {fileID: 0}
-  selectionDropdown: {fileID: 0}
+  materialDropdown: {fileID: 1775269403}
+  selectionDropdown: {fileID: 1520401028}
   selectionDropdownHandler: {fileID: 1520401027}
   speed: 0
   rotateRightButtonPressed: 0

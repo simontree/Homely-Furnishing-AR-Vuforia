@@ -47,9 +47,12 @@ public class FurniturePlacingManager : MonoBehaviour
     
     void RotateTowardsCamera(GameObject augmentation)
     {
-        var lookAtPosition = _mainCamera.transform.position - augmentation.transform.position;
+        if (buttonManager.WasRotated() == false)
+        {
+            var lookAtPosition = _mainCamera.transform.position - augmentation.transform.position;
             lookAtPosition.y = 0;
             augmentation.transform.rotation = Quaternion.LookRotation(lookAtPosition);
+        }
     }
 
     /// <summary>
