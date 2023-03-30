@@ -6,8 +6,6 @@ This is a project work within the course "special applications of computer scien
 <img src="Assets/Media/screenshots/tutorialscene.png" align="left" height="500" width="225" >
 <img src="Assets/Media/screenshots/mainscene.png" align="left" height="500" width="225" >
 
-![Screenshot](Assets/Media/screenshots/introscene.png) ![Screenshot](Assets/Media/screenshots/tutorialscene.png) ![Screenshot](Assets/Media/screenshots/mainscene.png)
-
 Technologies used:
 - Unity 3D 2021.3.20f1
 - Vuforia 10.13.3  
