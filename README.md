@@ -15,3 +15,4 @@ Technologies used:
 - Rider 2022.3.2 </br>
 - Davinci Resolve 18 </br>
 
+successfully tested on Motorola 30 Edge Neo
