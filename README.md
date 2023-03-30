@@ -2,7 +2,9 @@
  
 This is a project work within the course "special applications of computer science" of the HTW berlin.
 
-<img src="Assets/Media/screenshots/introscene.png" align="left" height="48" width="48" >
+<img src="Assets/Media/screenshots/introscene.png" align="left" height="500" width="225" >
+<img src="Assets/Media/screenshots/tutorialscene.png" align="left" height="500" width="225" >
+<img src="Assets/Media/screenshots/mainscene.png" align="left" height="500" width="225" >
 
 ![Screenshot](Assets/Media/screenshots/introscene.png) ![Screenshot](Assets/Media/screenshots/tutorialscene.png) ![Screenshot](Assets/Media/screenshots/mainscene.png)
 
