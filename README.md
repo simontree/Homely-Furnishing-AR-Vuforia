@@ -1,4 +1,4 @@
-# Homely-Furnishing-AR-Vuforia
+# Homely Furnishing AR App for Android
  
 This is a project work within the course "special applications of computer science" of the HTW berlin.
 
