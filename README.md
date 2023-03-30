@@ -3,9 +3,9 @@
 This is a project work within the course "special applications of computer science" of the HTW berlin.
 
 
-<img src="Assets/Media/screenshots/introscene.png" align="left" height="500" width="225" >
-<img src="Assets/Media/screenshots/tutorialscene.png" align="left" height="500" width="225" >
-<img src="Assets/Media/screenshots/mainscene.png" align="left" height="500" width="225" >
+<img src="Assets/Media/screenshots/introscene.png" height="500" width="225" >
+<img src="Assets/Media/screenshots/tutorialscene.png" height="500" width="225" >
+<img src="Assets/Media/screenshots/mainscene.png" height="500" width="225" >
 
 </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
 
