@@ -2,7 +2,6 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using Vuforia;
-using Vuforia.UnityRuntimeCompiled;
 
 public class FurniturePlacingManager : MonoBehaviour
 {
@@ -12,7 +11,7 @@ public class FurniturePlacingManager : MonoBehaviour
     private bool _isPlaced;
 
     public SelectionDropdownHandler selectionDropdownHandler;
-    public Dropdown dropdown;
+    public Dropdown selectionDropdown;
 
     [SerializeField] private ButtonManager buttonManager;
     void Start()
@@ -23,7 +22,7 @@ public class FurniturePlacingManager : MonoBehaviour
     private Transform GetFurnitureObjectTransform()
     {
         return anchorPlacement.transform
-            .GetChild(selectionDropdownHandler.GetSelectedObjectIndex(dropdown));
+            .GetChild(selectionDropdownHandler.GetSelectedObjectIndex(selectionDropdown));
     }
     
     void Update()
@@ -36,7 +35,7 @@ public class FurniturePlacingManager : MonoBehaviour
     
     void SnapObjectToMousePosition()
     {
-        if (VuforiaRuntimeUtilities.IsPlayMode() && Input.GetMouseButton(0) && !UnityRuntimeCompiledFacade.Instance.IsUnityUICurrentlySelected())
+        if (Input.GetMouseButton(0))
         {
             var cameraToPlaneRay = _mainCamera.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(cameraToPlaneRay, out var cameraToPlaneHit))
