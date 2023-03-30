@@ -2,11 +2,11 @@
  
 This is a project work within the course "special applications of computer science" of the HTW berlin.
 
-
+<span>
 <img src="Assets/Media/screenshots/introscene.png" height="500" width="225" >
 <img src="Assets/Media/screenshots/tutorialscene.png" height="500" width="225" >
 <img src="Assets/Media/screenshots/mainscene.png" height="500" width="225" >
-
+</span>
 
 
 Technologies used:
